@@ -4,15 +4,15 @@ from GameObject import *
 
 
 class Plane(GameObject):
-    MAX_ACC = 50
+    MAX_ACC = 25
     MIN_ACC = 5
     acc_rate = MIN_ACC
-    fall_speed = 50
+    fall_speed = 25
     acc = 0
     
-    push_power = 50
+    push_power = 35
     
-    MAX_ROT = 45
+    MAX_ROT = 35
     ROT_SPEED = 100
     
     def __init__(self, vec2, sprite, rot = 0):

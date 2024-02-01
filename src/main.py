@@ -5,8 +5,8 @@ from Game import *
 pygame.init()
 running = True 
 #screen
-SCREEN_WIDTH = 600
-SCREEN_HEIGHT = 600
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 480
 screen = pygame.display.set_mode([SCREEN_WIDTH, SCREEN_HEIGHT])
 #clock
 clock = pygame.time.Clock()
