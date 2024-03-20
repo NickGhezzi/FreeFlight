@@ -8,6 +8,7 @@ class Parallax(object):
         self.pieces = pieces
         self.dir = dir
         self.speed = speed
+        self.resetPosX = startPosX
         self.sPosX = startPosX
         self.ePosX = 0 
         self.isActive = True 
@@ -26,15 +27,23 @@ class Parallax(object):
              
         self.sPosX += self.pieces[0].sprite.get_width() * (len(self.pieces) - 1)
               
+    def reset(self):
+        #reset gameobjects
+        for piece in self.pieces:
+            piece.reset()
+        #reset parallax settings
+        self.sPosX =  self.resetPosX 
+        self.setup()
     
     def update(self, dt, events):
         # movement
         for piece in self.pieces:
+            piece.update(dt, events)
             if(self.isActive == True):
                 piece.pos.x += (self.speed * self.dir)
             if(piece.pos.x <= self.ePosX):
+                piece.reset()
                 piece.pos.x = self.sPosX
-            piece.update(dt, events)
             
     def draw(self, screen):
         for piece in self.pieces:

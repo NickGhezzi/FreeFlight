@@ -1,13 +1,12 @@
-import pygame, sys
+import pygame, sys, globals
 from Game import *
 
 # Init
 pygame.init()
 running = True 
 #screen
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 480
-screen = pygame.display.set_mode([SCREEN_WIDTH, SCREEN_HEIGHT])
+
+screen = pygame.display.set_mode([globals.SCREEN_WIDTH, globals.SCREEN_HEIGHT])
 #clock
 clock = pygame.time.Clock()
 #game
