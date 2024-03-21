@@ -13,6 +13,8 @@ class Parallax(object):
         self.ePosX = 0 
         self.isActive = True 
         self.spacing = spacing #pixels
+        self.maxSpeed = 8
+        self.initSpeed = speed
         
         self.setup()
         
@@ -33,6 +35,7 @@ class Parallax(object):
             piece.reset()
         #reset parallax settings
         self.sPosX =  self.resetPosX 
+        self.speed = self.initSpeed
         self.setup()
     
     def update(self, dt, events):
@@ -40,7 +43,7 @@ class Parallax(object):
         for piece in self.pieces:
             piece.update(dt, events)
             if(self.isActive == True):
-                piece.pos.x += (self.speed * self.dir)
+                piece.pos.x = piece.pos.x + (self.speed * self.dir)
             if(piece.pos.x <= self.ePosX):
                 piece.reset()
                 piece.pos.x = self.sPosX
@@ -48,3 +51,6 @@ class Parallax(object):
     def draw(self, screen):
         for piece in self.pieces:
             piece.draw(screen)
+            
+    def increaseSpeed(self, speed):
+        self.speed = pygame.math.clamp(self.speed + speed, 0, self.maxSpeed)

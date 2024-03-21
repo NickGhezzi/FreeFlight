@@ -9,5 +9,5 @@ HALF_SCREEN_WIDTH = SCREEN_WIDTH * 0.5
 HALF_SCREEN_HEIGHT = SCREEN_HEIGHT * 0.5
 
 #Makes debug elements visible 
-DEBUG = True;
+DEBUG = False
 

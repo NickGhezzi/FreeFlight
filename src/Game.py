@@ -54,6 +54,9 @@ class Game(object):
         for event in  events:
             if event.type == globals.PLAYER_SCORED:
                 self.score += 1
+                self.background.increaseSpeed(0.2)
+                self.cliffPrlx.increaseSpeed(0.2)
+                self.foreground.increaseSpeed(0.2)
                 print("Player score: ", self.score)
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_r:
