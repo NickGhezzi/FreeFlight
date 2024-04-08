@@ -24,12 +24,11 @@ class Plane(GameObject):
         # input
         if(self.isDead == False):
             for event in  events:
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_UP:
-                        self.rot = 250
-                        self.acc = 0
-                        self.acc_rate = self.MIN_ACC
-                        self.pos.y -= self.push_power
+                 if event.type == pygame.MOUSEBUTTONUP:
+                    self.rot = 250
+                    self.acc = 0
+                    self.acc_rate = self.MIN_ACC
+                    self.pos.y -= self.push_power
                 
         # gravity
         self.acc_rate += self.MAX_ACC * dt

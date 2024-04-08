@@ -1,5 +1,6 @@
 import pygame, sys, globals
 from Game import *
+from MainMenu import *
 
 # Init
 pygame.init()
@@ -9,20 +10,27 @@ running = True
 screen = pygame.display.set_mode([globals.SCREEN_WIDTH, globals.SCREEN_HEIGHT])
 #clock
 clock = pygame.time.Clock()
-#game
-plane_game = Game()
-plane_game.init(screen)
+#sets up initial scene. starting menu
+currentScene = MainMenu()
+# currentScene = Game()
 
 # Main game loop
 while running:
     #get frame events
     events = pygame.event.get()
-    # Close game
     for event in events:
+        #Close game
         if event.type == pygame.QUIT:
             running = False
             pygame.quit()
             sys.exit()
+        #Scene change events
+        if event.type == globals.SCENE_CHANGE:
+            if(event.scene == 'Game'):
+                currentScene = Game()
+            elif(event.scene == 'MainMenu'):
+                currentScene = MainMenu()  
+        
 
     # Delta time
     dt = clock.tick(60) / 1000
@@ -31,8 +39,8 @@ while running:
     screen.fill((0, 0, 0))
 
 
-    plane_game.update(dt, events)
-    plane_game.draw(screen)
+    currentScene.update(dt, events)
+    currentScene.draw(screen)
 
 
     # Flip the display

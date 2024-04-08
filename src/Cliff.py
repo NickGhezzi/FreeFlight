@@ -26,7 +26,6 @@ class Cliff(GameObject):
                 pygame.event.post(pygame.event.Event(globals.PLAYER_DIED))
                 self.playerRef.isDead = True
 
-        #todo look to see if player passed the cliff
         if(self.passed == False):
             if(self.pos.x <= self.playerRef.pos.x):
                 self.passed = True
