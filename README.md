@@ -7,7 +7,7 @@ Free Flight is a 2d game made in python using the PyGame library. Try to fly you
 - Run the main.py script and enjoy
 #### Controls
 
-- Move: **up arrow key**
+- Move: **Mouse click on screen**
 - Reset: **r**
 
 #### Mechanics
